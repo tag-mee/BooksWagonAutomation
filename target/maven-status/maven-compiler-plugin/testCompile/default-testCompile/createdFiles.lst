@@ -1,0 +1,6 @@
+stepdefinition\FiltersSteps.class
+stepdefinition\CartSteps.class
+stepdefinition\UserRegistration.class
+stepdefinition\HomePageSteps.class
+runner\TestRunner.class
+stepdefinition\ProductVerificationSteps.class

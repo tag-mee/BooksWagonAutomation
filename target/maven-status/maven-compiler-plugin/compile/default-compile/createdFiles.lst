@@ -1,0 +1,7 @@
+pages\ProductVerification.class
+pages\FiltersPage.class
+utils\ExcelReader.class
+utils\BrowserFactory.class
+pages\HomePage.class
+pages\UserRegistrationPage.class
+pages\CartAutomationPage.class

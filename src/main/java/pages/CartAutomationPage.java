@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+import javax.lang.model.element.Element;
+
 public class CartAutomationPage {
 	private WebDriver driver;
 
@@ -40,9 +42,11 @@ public class CartAutomationPage {
 	 * Opens the cart.
 	 */
 	public void openCart() {
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
 		WebElement cartIcon = driver
 				.findElement(By.xpath("//*[@id=\"aspnetForm\"]/header/div[2]/div/div[3]/ul/li[2]/a"));
-		cartIcon.click();
+		WebElement atc = wait.until(ExpectedConditions.elementToBeClickable(cartIcon));
+		atc.click();
 		System.out.println("Clicked the cart icon");
 	}
 
@@ -78,9 +82,9 @@ public class CartAutomationPage {
 	 */
 	public void proceedToCheckout() throws InterruptedException {
 
-		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		By checkoutLocator = By.xpath("//*[@id=\"ctl00_phBody_BookCart_lvCart_imgPayment\"]");
-		WebElement checkout = driver.findElement(checkoutLocator);
+		WebElement checkout = wait.until(ExpectedConditions.elementToBeClickable(checkoutLocator));
 		checkout.click();
 	}
 

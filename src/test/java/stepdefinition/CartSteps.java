@@ -40,7 +40,7 @@ public class CartSteps {
 
 	@When("I add an item to the cart")
 	public void i_add_an_item_to_the_cart() throws InterruptedException {
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
 		cPage.addItemToCart();
 	}
 
@@ -57,7 +57,6 @@ public class CartSteps {
 	@When("I remove an item from the cart")
 	public void i_remove_an_item_from_the_cart() throws InterruptedException {
 		cPage.removeItemFromCart();
-		Thread.sleep(5000);
 		
 	}
 
@@ -65,13 +64,12 @@ public class CartSteps {
 	public void i_should_proceed_to_checkout() throws InterruptedException {
 		
 	    // Define explicit wait with a timeout of 5 seconds
-		
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-	    
-	    // Wait until the checkout button is clickable
-	    
-	    By checkoutButton = By.xpath("//*[@id=\"ctl00_phBody_BookCart_lvCart_imgPayment\"]");
-	    wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)); 
+		Thread.sleep(4000);//	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+//	    
+//	    // Wait until the checkout button is clickable
+//	    
+//	    By checkoutButton = By.xpath("//*[@id=\"ctl00_phBody_BookCart_lvCart_imgPayment\"]");
+//	    wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)); 
 	    
 	    // Replace "checkoutButton" with the actual locator
 	    

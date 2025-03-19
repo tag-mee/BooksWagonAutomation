@@ -45,28 +45,29 @@ public class FiltersPage {
 			}
 		}
 	}
+
 	/**
 	 * Clicks on the discount filter based on the provided range.
 	 *
 	 * @param discountRange The range to filter (e.g., "31% - 40%")
 	 */
 	public void clickDiscountFilter(String discountRange) {
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		    try {
-		        List<WebElement> discountFilters = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-		                By.xpath("//*[@id='site-wrapper']/div[1]/div[1]/div[2]/div[1]/ul/li/a")));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		try {
+			List<WebElement> discountFilters = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+					By.xpath("//*[@id='site-wrapper']/div[1]/div[1]/div[2]/div[1]/ul/li/a")));
 
-		        for (WebElement filter : discountFilters) {
-		            if (filter.getText().contains(discountRange)) {
-		                System.out.println("Clicking on Discount filter: " + discountRange);
-		                filter.click();
-		                wait.until(ExpectedConditions.urlContains("filter?sid=")); // Ensure URL is updated
-		                break;
-		            }
-		        }
-		    } catch (Exception e) {
-		        System.err.println("Error while clicking on Discount filter: " + e.getMessage());
-		    }
+			for (WebElement filter : discountFilters) {
+				if (filter.getText().contains(discountRange)) {
+					System.out.println("Clicking on Discount filter: " + discountRange);
+					filter.click();
+					wait.until(ExpectedConditions.urlContains("filter?sid=")); // Ensure URL is updated
+					break;
+				}
+			}
+		} catch (Exception e) {
+			System.err.println("Error while clicking on Discount filter: " + e.getMessage());
+		}
 	}
 
 	/**
@@ -75,24 +76,23 @@ public class FiltersPage {
 	 * @param language The language to filter by (e.g., "English")
 	 */
 	public void clickLanguageFilter(String language) {
-	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	    try {
-	        // Locate all language filter options
-	        List<WebElement> languageFilters = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-	                By.xpath("//*[@id='site-wrapper']/div[1]/div[1]/div[2]/div[1]/ul/li/a")));
-	      
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		try {
+			// Locate all language filter options
+			List<WebElement> languageFilters = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+					By.xpath("//*[@id='site-wrapper']/div[1]/div[1]/div[2]/div[1]/ul/li/a")));
 
-	        for (WebElement filter : languageFilters) {
-	            if (filter.getText().contains(language)) {
-	                System.out.println("Clicking on Language filter: " + language);
-	                // Click the desired language filter
-	                filter.click();
-	                break;
-	            }
-	        }
-	    } catch (Exception e) {
-	        System.err.println("Error while clicking on Language filter: " + e.getMessage());
-	    }
+			for (WebElement filter : languageFilters) {
+				if (filter.getText().contains(language)) {
+					System.out.println("Clicking on Language filter: " + language);
+					// Click the desired language filter
+					filter.click();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			System.err.println("Error while clicking on Language filter: " + e.getMessage());
+		}
 	}
 
 	/**
@@ -106,18 +106,17 @@ public class FiltersPage {
 		System.out.println(resultsCount);
 		return true;
 	}
+
 	public void takeScreenshot() {
 		TakesScreenshot screenshot = (TakesScreenshot) driver;
-	    File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
-	    File destFile = new File("C:\\Users\\anjal\\Java_Projects\\BookswagonAutomation\\Screenshots\\FilterPage.png");
-	    try {
-	        FileUtils.copyFile(srcFile, destFile);
-	        System.out.println("Screenshot captured at: " + destFile.getAbsolutePath());
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	    }
+		File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+		File destFile = new File("C:\\Users\\anjal\\Java_Projects\\BookswagonAutomation\\Screenshots\\FilterPage.png");
+		try {
+			FileUtils.copyFile(srcFile, destFile);
+			System.out.println("Screenshot captured at: " + destFile.getAbsolutePath());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-	
-	
-	
+
 }
