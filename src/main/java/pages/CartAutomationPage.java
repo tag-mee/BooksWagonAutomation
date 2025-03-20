@@ -31,6 +31,7 @@ public class CartAutomationPage {
 	 * @throws InterruptedException
 	 */
 	public void addItemToCart() throws InterruptedException {
+		Thread.sleep(4000);
 		WebElement atc = driver.findElement(By.xpath("//*[@id=\"listSearchResult\"]/div[1]/div[4]/div[4]/input[1]"));
 		WebElement atc2 = driver.findElement(By.xpath("//*[@id=\"listSearchResult\"]/div[2]/div[4]/div[5]/input[1]"));
 		atc.click();
