@@ -32,7 +32,7 @@ public class FiltersPage {
 	 * @param priceRange The range to filter (e.g., "Rs.500 - Rs.1000")
 	 */
 	public void clickPriceFilter(String priceRange) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		List<WebElement> priceFilters = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
 				By.xpath("//*[@id='site-wrapper']/div[1]/div[1]/div[2]/div[1]/ul/li/a")));
 
@@ -51,7 +51,7 @@ public class FiltersPage {
 	 * @param discountRange The range to filter (e.g., "31% - 40%")
 	 */
 	public void clickDiscountFilter(String discountRange) {
-		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		 WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		    try {
 		        List<WebElement> discountFilters = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
 		                By.xpath("//*[@id='site-wrapper']/div[1]/div[1]/div[2]/div[1]/ul/li/a")));
